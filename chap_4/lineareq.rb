@@ -17,11 +17,15 @@ def prepare(eq)
   left = eq.delete(' ').split("=")[0]
   right = eq.delete(' ').split("=")[1]
 
-  #if left[/\+|\-/]
+  p left
+  p right
 
-
+  p left.scan(/\d+\b/)
+  p right.scan(/\d+\b/)
 
 end
+
+
 
 prepare("y = 4x + 8")
 
