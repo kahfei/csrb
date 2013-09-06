@@ -6,6 +6,7 @@ class Integer
 		if (self == 0 || self == 1 )
 			return false
 		else
+			# even encounter one divisors it is no longer a prime
 			for i in (2..Math.sqrt(self))
 				if self % i == 0
 					return false
