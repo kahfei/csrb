@@ -10,18 +10,25 @@ def getElements(eq)
   end
   p elements
 end
-  
 #getElements("y = 4x + 8")
 
 def prepare(eq)
+  #remove spaces and split equation to two parts
   left = eq.delete(' ').split("=")[0]
   right = eq.delete(' ').split("=")[1]
 
-  p left
-  p right
+  #compare right and left, assign value without algebra to constant_value
+  constant_value = left.scan(/[\+|\-]\d+\b/) && right.scan(/[\+|\-]\d+\b/)
 
-  p left.scan(/\d+\b/)
-  p right.scan(/\d+\b/)
+  new_left = []
+  [left, right].each do |element|
+    if element.include?(constant_value[0])
+      new_left << element.delete(constant_value[0])
+
+    end
+  end
+  puts "new_left is #{new_left}"
+  puts "constant_value is #{constant_value[0]}"
 
 end
 
