@@ -10,6 +10,7 @@ class Integer
 			for i in (2..Math.sqrt(self))
 				if self % i == 0
 					return false
+					break
 				end
 			end
 			return true
