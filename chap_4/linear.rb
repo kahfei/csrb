@@ -12,9 +12,11 @@ end
 def add_coe(eq)
 	elements = []
 	eq.each do |item|
-		if item[/[\d+\b]|\d+[a-zA-Z]|\=/]
+		if item[/[\d+\b]|\d+[a-zA-Z]/]
 			elements << add_sign(item)
-		else item[/[a-zA-Z]/]
+		elsif item[/\=/]
+			elements << item			
+		elsif item[/[a-zA-Z]/]
 			elements << ("1" + add_sign(item))
 		end
 	end
@@ -28,3 +30,9 @@ def add_sign(string)
 		"+" + string
 	end
 end
+
+def move_elements(eq)
+	equal_index = eq.index("=")
+end
+
+
