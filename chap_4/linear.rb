@@ -1,9 +1,6 @@
 equation = "3y = 4x + 8"
 
 
-def get_constant_result(eq)
-	eq.scan(/[\+|\-]\d+\b/)
-end
 
 def get_elements(eq)
 	eq.delete(" ").scan(/[\+|\-]*\d*[a-zA-Z]|\=|[\+|\-]*\d+/)
@@ -33,6 +30,7 @@ end
 
 def move_elements(eq)
 	equal_index = eq.index("=")
+	eq.each_index {|i| constant_index = i if x[i][/\d+\b/]}
 end
 
 
