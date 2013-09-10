@@ -28,9 +28,20 @@ def add_sign(string)
 	end
 end
 
+def switch_sign(string)
+	if string[/\+/]
+		string.gsub("+","-")
+	else
+		string.gsub("-","+")
+	end
+end
+
 def move_elements(eq)
 	equal_index = eq.index("=")
 	eq.each_index {|i| constant_index = i if x[i][/\d+\b/]}
+	# if constant value at last item, and there are elements between equal sign and constant 
+	if eq[constant_index] == eq.last && eq[(equal_index + 1)...eq[constant_index]]
+		eq[(equal_index + 1)...eq[constant_index]].each do 
 end
 
 
