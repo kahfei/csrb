@@ -1,5 +1,6 @@
-equation = "3y = 4x + 8"
-
+#equation = "3y = 4x + 8"
+#equation = "3x - 5y = 25"
+equation = " 4x  = 25 + 3y"
 
 
 def get_elements(eq)
@@ -37,11 +38,26 @@ def switch_sign(string)
 end
 
 def move_elements(eq)
+	left = []
+	
 	equal_index = eq.index("=")
-	eq.each_index {|i| constant_index = i if x[i][/\d+\b/]}
+	eq.each_index {|i| @constant_index = i if eq[i][/\d+\b/]}
 	# if constant value at last item, and there are elements between equal sign and constant 
-	if eq[constant_index] == eq.last && eq[(equal_index + 1)...eq[constant_index]]
-		eq[(equal_index + 1)...eq[constant_index]].each do 
+	#p eq[@constant_index] == eq.last
+	 #p eq[(equal_index+1)..@constant_index]
+	if eq[(equal_index+1)..-1].length > 1
+		(eq[(equal_index + 1)..-1]-(eq[@constant_index]).split).each do |element|
+			left << eq[0...equal_index] << switch_sign(element)
+		end
+	else
+		left = eq[0..equal_index]
+	end
+
+
+
+	puts "#{left.join} = #{eq[@constant_index]}"
 end
 
+p add_coe(get_elements(equation))
+move_elements(add_coe(get_elements(equation)))
 
