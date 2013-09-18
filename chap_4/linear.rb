@@ -1,7 +1,7 @@
 #equation = "3y = 4x + 8"
 #equation = "3x - 5y = 25"
-equation = " 4x  = 25 + 3y"
-
+#equation = " 4x  = 25 + 3y"
+equation = " 3 - 2x = y"
 
 def get_elements(eq)
 	eq.delete(" ").scan(/[\+|\-]*\d*[a-zA-Z]|\=|[\+|\-]*\d+/)
@@ -15,7 +15,7 @@ def add_coe(eq)
 		elsif item[/\=/]
 			elements << item			
 		elsif item[/[a-zA-Z]/]
-			elements << ("1" + add_sign(item))
+			elements << (add_sign("1" + item))
 		end
 	end
 	elements
